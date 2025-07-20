@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 public class Teleport : MonoBehaviour
 {
 
-    public int NumScene;
-
     private bool _isLoading;
 
     private static Teleport _instance;
@@ -28,7 +26,7 @@ public class Teleport : MonoBehaviour
     {
         if (_isLoading || !other.CompareTag("Player")) 
             return;
-        StartCoroutine(LoadSceneRoutine(NumScene));
+        StartCoroutine(LoadSceneRoutine(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
     private IEnumerator LoadSceneRoutine(int NumScene)
